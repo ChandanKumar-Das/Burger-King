@@ -1,10 +1,11 @@
+import Navbar from "./components/Navbar";
 
 
 
 function App() {
   return (
     <>
-    <h1 className='font-bold'>chandan Kumar Das</h1>
+    <Navbar/>
     </>
   );
 }
