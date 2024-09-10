@@ -1,28 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Logo from "../assets/logo.png";
+import { LiaCartArrowDownSolid } from "react-icons/lia";
 
 const Menu = [
   {
     id: 1,
-    name: "Home",
-    link: "javascript:void(0)",
-  },
-  {
-    id: 2,
     name: "About",
     link: "javascript:void(0)",
   },
   {
-    id: 3,
-    name: "Menu",
+    id: 2,
+    name: "LogIn",
     link: "javascript:void(0)",
   },
   {
-    id: 4,
-    name: "Services",
+    id: 3,
+    name: "SignUp",
     link: "javascript:void(0)",
   },
+  // {
+  //   id: 4,
+  //   name: "Services",
+  //   link: "javascript:void(0)",
+  // },
 ];
 
 const Navbar = () => {
@@ -65,14 +66,17 @@ const Navbar = () => {
             </ul>
 
             {/* Order Button Animation */}
-            <motion.button
-              className="bg-blue-600 from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 200 }}
+            <motion.div 
+            className="flex items-center gap-2 bg-blue-600 from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 200 }}
             >
-              Order
+            <motion.button>
+              Cart
             </motion.button>
+            <LiaCartArrowDownSolid />
+            </motion.div>
           </div>
         </div>
       </div>
