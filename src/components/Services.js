@@ -2,11 +2,14 @@ import React from "react";
 import Img2 from "../assets/burger/burger2.png";
 import Img3 from "../assets/burger/burger3.png";
 import HeaderTitle from "./HeaderTitle/HeaderTitle.js";
+import { useNavigate } from 'react-router-dom';
+
 const ServicesData = [
   {
     id: 1,
     img: Img2,
     name: "Burger",
+    value:'ALL',
     description:
       "Lorem ipsum dolor sit amet ipsum dolor sit ametipsum dolor sit amet ipsum dolor sit amet.",
     aosDelay: "100",
@@ -14,7 +17,8 @@ const ServicesData = [
   {
     id: 2,
     img: Img3,
-    name: "Chiken Burger",
+    name: "Non-Veg",
+    value: "NON_VEG",
     description:
       "Lorem ipsum dolor sit amet ipsum dolor sit ametipsum dolor sit amet ipsum dolor sit amet",
     aosDelay: "300",
@@ -22,27 +26,34 @@ const ServicesData = [
   {
     id: 3,
     img: Img2,
-    name: "Veg Burger",
+    name: "Veg",
+    value: "VEG",
     description:
       "Lorem ipsum dolor sit amet ipsum dolor sit ametipsum dolor sit amet ipsum dolor sit amet",
     aosDelay: "500",
   },
 ];
 const Services = () => {
+  const navigate = useNavigate();
+
+  const handelClick =()=>{
+    navigate('/burger');
+  }
+
   return (
     <div className="bg-gray-100">
       <div className="py-12 lg:py-20">
         <div className="container">
           <HeaderTitle
             title="Services"
-            subtitle="Our Services"
+            subtitle=""
             description={
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis delectus architecto error nesciunt,"
             }
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-5 place-items-center">
             {ServicesData.map((service) => (
-              <div
+              <div onClick={handelClick}
                 data-aos="fade-up"
                 data-aos-delay={service.aosDelay}
                 className="rounded-2xl bg-white hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"

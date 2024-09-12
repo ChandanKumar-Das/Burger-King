@@ -1,26 +1,20 @@
-import AppStore from "./components/AppStore";
-import Banner from "./components/Banner";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Popular from "./components/Popular";
-import Services from "./components/Services";
-import Testimonial from "./components/Testimonial";
 
-
+import Index from "./pages";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Burger from "./pages/Burgers";
 
 
 function App() {
   return (
     <>
-    <Navbar/>
-    <Hero/>
-    <Services/>
-    <Banner/>
-    <AppStore/>
-    <Testimonial/>
-    {/* <Popular/> */}
-    <Footer/>
+    
+    <BrowserRouter>
+    <Routes>
+      <Route index element={<Index/>}/>
+      <Route path="/" element={<Index/>}/>
+      <Route path="/burger" element={<Burger/>}/>
+    </Routes>
+    </BrowserRouter>
     </>
   );
 }

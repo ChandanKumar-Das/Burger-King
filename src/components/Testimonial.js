@@ -51,13 +51,13 @@ const Testimonial = () => {
       <div className=" bg-gray-100">
         <div className="container ">
           {/* Header  */}
-          {/* <HeaderTitle
+          <HeaderTitle
             title="Testimonial"
             subtitle="What our customers say"
             description={
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis delectus architecto error nesciunt,"
             }
-          /> */}
+          />
           {/* testimonial */}
           <div className="max-w-[800px]  mx-auto">
            

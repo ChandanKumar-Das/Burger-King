@@ -1,0 +1,465 @@
+  [
+    {
+      "id": 1,
+      "name": "Classic Cheeseburger",
+      "restaurantname": "Burger Haven",
+      "image": "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "A juicy beef patty topped with melted cheddar cheese, lettuce, tomato, and pickles."
+    },
+    {
+      "id": 2,
+      "name": "Veggie Delight",
+      "restaurantname": "Green Bites",
+      "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+      "category": "veg",
+      "available": true,
+      "description": "A delicious plant-based patty with fresh lettuce, tomato, cucumber, and avocado."
+    },
+    {
+      "id": 3,
+      "name": "BBQ Bacon Burger",
+      "restaurantname": "Smoky Grill",
+      "image": "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "Beef patty topped with crispy bacon, BBQ sauce, and fried onion rings."
+    },
+    {
+      "id": 4,
+      "name": "Spicy Chicken Burger",
+      "restaurantname": "Hot & Crispy",
+      "image": "https://images.pexels.com/photos/678414/pexels-photo-678414.jpeg",
+      "category": "non-veg",
+      "available": false,
+      "description": "Crispy fried chicken breast with spicy mayo, lettuce, and pickles."
+    },
+    {
+      "id": 5,
+      "name": "Egg & Cheese Sandwich",
+      "restaurantname": "Morning Bites",
+      "image": "https://images.pexels.com/photos/1335784/pexels-photo-1335784.jpeg",
+      "category": "egg",
+      "available": true,
+      "description": "Scrambled eggs with cheddar cheese in a soft toasted bun."
+    },
+    {
+      "id": 6,
+      "name": "Mushroom Swiss Burger",
+      "restaurantname": "Gourmet Burger",
+      "image": "https://images.pexels.com/photos/1435892/pexels-photo-1435892.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "Beef patty topped with sautéed mushrooms and melted Swiss cheese."
+    },
+    {
+      "id": 7,
+      "name": "Falafel Burger",
+      "restaurantname": "Middle Eastern Delight",
+      "image": "https://images.pexels.com/photos/2725748/pexels-photo-2725748.jpeg",
+      "category": "veg",
+      "available": true,
+      "description": "A crispy falafel patty with hummus, lettuce, and tomatoes."
+    },
+    {
+      "id": 8,
+      "name": "Double Decker Burger",
+      "restaurantname": "Maxi Burgers",
+      "image": "https://images.pexels.com/photos/2772762/pexels-photo-2772762.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "Two beef patties stacked with cheddar cheese, lettuce, and tomato."
+    },
+    {
+      "id": 9,
+      "name": "Paneer Tikka Burger",
+      "restaurantname": "Spicy India",
+      "image": "https://images.pexels.com/photos/236781/pexels-photo-236781.jpeg",
+      "category": "veg",
+      "available": true,
+      "description": "Grilled paneer marinated in tikka spices with mint chutney and onions."
+    },
+    {
+      "id": 10,
+      "name": "Turkey Burger",
+      "restaurantname": "Healthy Eats",
+      "image": "https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg",
+      "category": "non-veg",
+      "available": false,
+      "description": "Lean turkey patty with avocado, lettuce, and tomato on a whole wheat bun."
+    },
+    {
+      "id": 11,
+      "name": "Egg Salad Burger",
+      "restaurantname": "Eggcellent",
+      "image": "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg",
+      "category": "egg",
+      "available": true,
+      "description": "A creamy egg salad on a toasted bun with lettuce and cucumber."
+    },
+    {
+      "id": 12,
+      "name": "Fish Fillet Burger",
+      "restaurantname": "Seafood Shack",
+      "image": "https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "Crispy fish fillet with tartar sauce, lettuce, and tomato."
+    },
+    {
+      "id": 13,
+      "name": "Black Bean Burger",
+      "restaurantname": "Veggie Corner",
+      "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      "category": "veg",
+      "available": true,
+      "description": "A black bean patty with avocado, salsa, and lettuce in a whole wheat bun."
+    },
+    {
+      "id": 14,
+      "name": "Buffalo Chicken Burger",
+      "restaurantname": "Hot Wings",
+      "image": "https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "Spicy buffalo chicken breast with ranch dressing and pickles."
+    },
+    {
+      "id": 15,
+      "name": "Portobello Mushroom Burger",
+      "restaurantname": "The Vegan Spot",
+      "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+      "category": "veg",
+      "available": true,
+      "description": "Grilled portobello mushroom with vegan mayo, lettuce, and tomato."
+    },
+    {
+      "id": 16,
+      "name": "Eggplant Parmesan Burger",
+      "restaurantname": "Italian Bites",
+      "image": "https://images.pexels.com/photos/136721/pexels-photo-136721.jpeg",
+      "category": "veg",
+      "available": false,
+      "description": "Fried eggplant with marinara sauce and melted mozzarella."
+    },
+    {
+      "id": 17,
+      "name": "Cheddar Jalapeno Burger",
+      "restaurantname": "Spicy Grill",
+      "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "Beef patty with cheddar cheese, jalapenos, and spicy mayo."
+    },
+    {
+      "id": 18,
+      "name": "Egg Benedict Burger",
+      "restaurantname": "Brunch House",
+      "image": "https://images.pexels.com/photos/89778/pexels-photo-89778.jpeg",
+      "category": "egg",
+      "available": true,
+      "description": "Poached egg with hollandaise sauce on an English muffin bun."
+    },
+    {
+      "id": 19,
+      "name": "Lamb Burger",
+      "restaurantname": "Mediterranean Grill",
+      "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      "category": "non-veg",
+      "available": true,
+      "description": "Juicy lamb patty with tzatziki sauce, lettuce, and tomatoes."
+    },
+    {
+      "id": 20,
+      "name": "Avocado Veggie Burger",
+      "restaurantname": "Fresh & Fit",
+      "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      "category": "veg",
+      "available": true,
+      "description": "A veggie patty with mashed avocado, lettuce, tomato, and onions."
+    },
+    {
+        "id": 21,
+        "name": "Classic Cheeseburger",
+        "restaurantname": "Burger Haven",
+        "image": "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "A juicy beef patty topped with melted cheddar cheese, lettuce, tomato, and pickles."
+      },
+      {
+        "id": 22,
+        "name": "Veggie Delight",
+        "restaurantname": "Green Bites",
+        "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+        "category": "veg",
+        "available": true,
+        "description": "A delicious plant-based patty with fresh lettuce, tomato, cucumber, and avocado."
+      },
+      {
+        "id": 23,
+        "name": "BBQ Bacon Burger",
+        "restaurantname": "Smoky Grill",
+        "image": "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "Beef patty topped with crispy bacon, BBQ sauce, and fried onion rings."
+      },
+      {
+        "id": 24,
+        "name": "Spicy Chicken Burger",
+        "restaurantname": "Hot & Crispy",
+        "image": "https://images.pexels.com/photos/678414/pexels-photo-678414.jpeg",
+        "category": "non-veg",
+        "available": false,
+        "description": "Crispy fried chicken breast with spicy mayo, lettuce, and pickles."
+      },
+      {
+        "id": 25,
+        "name": "Egg & Cheese Sandwich",
+        "restaurantname": "Morning Bites",
+        "image": "https://images.pexels.com/photos/1335784/pexels-photo-1335784.jpeg",
+        "category": "egg",
+        "available": true,
+        "description": "Scrambled eggs with cheddar cheese in a soft toasted bun."
+      },
+      {
+        "id": 26,
+        "name": "Mushroom Swiss Burger",
+        "restaurantname": "Gourmet Burger",
+        "image": "https://images.pexels.com/photos/1435892/pexels-photo-1435892.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "Beef patty topped with sautéed mushrooms and melted Swiss cheese."
+      },
+      {
+        "id": 27,
+        "name": "Falafel Burger",
+        "restaurantname": "Middle Eastern Delight",
+        "image": "https://images.pexels.com/photos/2725748/pexels-photo-2725748.jpeg",
+        "category": "veg",
+        "available": true,
+        "description": "A crispy falafel patty with hummus, lettuce, and tomatoes."
+      },
+      {
+        "id": 28,
+        "name": "Double Decker Burger",
+        "restaurantname": "Maxi Burgers",
+        "image": "https://images.pexels.com/photos/2772762/pexels-photo-2772762.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "Two beef patties stacked with cheddar cheese, lettuce, and tomato."
+      },
+      {
+        "id": 29,
+        "name": "Paneer Tikka Burger",
+        "restaurantname": "Spicy India",
+        "image": "https://images.pexels.com/photos/236781/pexels-photo-236781.jpeg",
+        "category": "veg",
+        "available": true,
+        "description": "Grilled paneer marinated in tikka spices with mint chutney and onions."
+      },
+      {
+        "id": 30,
+        "name": "Turkey Burger",
+        "restaurantname": "Healthy Eats",
+        "image": "https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg",
+        "category": "non-veg",
+        "available": false,
+        "description": "Lean turkey patty with avocado, lettuce, and tomato on a whole wheat bun."
+      },
+      {
+        "id": 31,
+        "name": "Egg Salad Burger",
+        "restaurantname": "Eggcellent",
+        "image": "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg",
+        "category": "egg",
+        "available": true,
+        "description": "A creamy egg salad on a toasted bun with lettuce and cucumber."
+      },
+      {
+        "id": 32,
+        "name": "Fish Fillet Burger",
+        "restaurantname": "Seafood Shack",
+        "image": "https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "Crispy fish fillet with tartar sauce, lettuce, and tomato."
+      },
+      {
+        "id": 33,
+        "name": "Black Bean Burger",
+        "restaurantname": "Veggie Corner",
+        "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+        "category": "veg",
+        "available": true,
+        "description": "A black bean patty with avocado, salsa, and lettuce in a whole wheat bun."
+      },
+      {
+        "id": 34,
+        "name": "Buffalo Chicken Burger",
+        "restaurantname": "Hot Wings",
+        "image": "https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "Spicy buffalo chicken breast with ranch dressing and pickles."
+      },
+      {
+        "id": 35,
+        "name": "Portobello Mushroom Burger",
+        "restaurantname": "The Vegan Spot",
+        "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+        "category": "veg",
+        "available": true,
+        "description": "Grilled portobello mushroom with vegan mayo, lettuce, and tomato."
+      },
+      {
+        "id": 36,
+        "name": "Eggplant Parmesan Burger",
+        "restaurantname": "Italian Bites",
+        "image": "https://images.pexels.com/photos/136721/pexels-photo-136721.jpeg",
+        "category": "veg",
+        "available": false,
+        "description": "Fried eggplant with marinara sauce and melted mozzarella."
+      },
+      {
+        "id": 37,
+        "name": "Cheddar Jalapeno Burger",
+        "restaurantname": "Spicy Grill",
+        "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "Beef patty with cheddar cheese, jalapenos, and spicy mayo."
+      },
+      {
+        "id": 38,
+        "name": "Egg Benedict Burger",
+        "restaurantname": "Brunch House",
+        "image": "https://images.pexels.com/photos/89778/pexels-photo-89778.jpeg",
+        "category": "egg",
+        "available": true,
+        "description": "Poached egg with hollandaise sauce on an English muffin bun."
+      },
+      {
+        "id": 39,
+        "name": "Lamb Burger",
+        "restaurantname": "Mediterranean Grill",
+        "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+        "category": "non-veg",
+        "available": true,
+        "description": "Juicy lamb patty with tzatziki sauce, lettuce, and tomatoes."
+      },
+      {
+        "id": 40,
+        "name": "Avocado Veggie Burger",
+        "restaurantname": "Fresh & Fit",
+        "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+        "category": "veg",
+        "available": true,
+        "description": "A veggie patty with mashed avocado, lettuce, tomato, and onions."
+      },
+      {
+        "id": 41,
+        "name": "Avocado Veggie Burger",
+        "restaurantname": "Fresh & Fit",
+        "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+        "category": "veg",
+        "available": true,
+        "description": "A veggie patty with mashed avocado, lettuce, tomato, and onions."
+      },
+      {
+          "id": 42,
+          "name": "Classic Cheeseburger",
+          "restaurantname": "Burger Haven",
+          "image": "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg",
+          "category": "non-veg",
+          "available": true,
+          "description": "A juicy beef patty topped with melted cheddar cheese, lettuce, tomato, and pickles."
+        },
+        {
+          "id": 43,
+          "name": "Veggie Delight",
+          "restaurantname": "Green Bites",
+          "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+          "category": "veg",
+          "available": true,
+          "description": "A delicious plant-based patty with fresh lettuce, tomato, cucumber, and avocado."
+        },
+        {
+          "id": 44,
+          "name": "BBQ Bacon Burger",
+          "restaurantname": "Smoky Grill",
+          "image": "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg",
+          "category": "non-veg",
+          "available": true,
+          "description": "Beef patty topped with crispy bacon, BBQ sauce, and fried onion rings."
+        },
+        {
+          "id": 45,
+          "name": "Spicy Chicken Burger",
+          "restaurantname": "Hot & Crispy",
+          "image": "https://images.pexels.com/photos/678414/pexels-photo-678414.jpeg",
+          "category": "non-veg",
+          "available": false,
+          "description": "Crispy fried chicken breast with spicy mayo, lettuce, and pickles."
+        },
+        {
+          "id": 46,
+          "name": "Egg & Cheese Sandwich",
+          "restaurantname": "Morning Bites",
+          "image": "https://images.pexels.com/photos/1335784/pexels-photo-1335784.jpeg",
+          "category": "egg",
+          "available": true,
+          "description": "Scrambled eggs with cheddar cheese in a soft toasted bun."
+        },
+        {
+          "id": 47,
+          "name": "Mushroom Swiss Burger",
+          "restaurantname": "Gourmet Burger",
+          "image": "https://images.pexels.com/photos/1435892/pexels-photo-1435892.jpeg",
+          "category": "non-veg",
+          "available": true,
+          "description": "Beef patty topped with sautéed mushrooms and melted Swiss cheese."
+        },
+        {
+          "id": 48,
+          "name": "Falafel Burger",
+          "restaurantname": "Middle Eastern Delight",
+          "image": "https://images.pexels.com/photos/2725748/pexels-photo-2725748.jpeg",
+          "category": "veg",
+          "available": true,
+          "description": "A crispy falafel patty with hummus, lettuce, and tomatoes."
+        },
+        {
+          "id": 49,
+          "name": "Double Decker Burger",
+          "restaurantname": "Maxi Burgers",
+          "image": "https://images.pexels.com/photos/2772762/pexels-photo-2772762.jpeg",
+          "category": "non-veg",
+          "available": true,
+          "description": "Two beef patties stacked with cheddar cheese, lettuce, and tomato."
+        },
+        {
+          "id": 50,
+          "name": "Paneer Tikka Burger",
+          "restaurantname": "Spicy India",
+          "image": "https://images.pexels.com/photos/236781/pexels-photo-236781.jpeg",
+          "category": "veg",
+          "available": true,
+          "description": "Grilled paneer marinated in tikka spices with mint chutney and onions."
+        },
+        {
+          "id": 51,
+          "name": "Turkey Burger",
+          "restaurantname": "Healthy Eats",
+          "image": "https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg",
+          "category": "non-veg",
+          "available": false,
+          "description": "Lean turkey patty with avocado, lettuce, and tomato on a whole wheat bun."
+        }
+
+  ]
+
+  
+  
