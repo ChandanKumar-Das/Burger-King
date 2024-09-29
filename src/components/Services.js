@@ -2,7 +2,9 @@ import React from "react";
 import Img2 from "../assets/burger/burger2.png";
 import Img3 from "../assets/burger/burger3.png";
 import HeaderTitle from "./HeaderTitle/HeaderTitle.js";
-import { useNavigate } from 'react-router-dom';
+import { useContext } from "react"
+
+import {AppContext} from '../context/Appcontext.js'
 
 const ServicesData = [
   {
@@ -34,11 +36,8 @@ const ServicesData = [
   },
 ];
 const Services = () => {
-  const navigate = useNavigate();
-
-  const handelClick =()=>{
-    navigate('/burger');
-  }
+  
+   const {handelfoodtype} = useContext(AppContext)
 
   return (
     <div className="bg-gray-100">
@@ -53,7 +52,7 @@ const Services = () => {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-5 place-items-center">
             {ServicesData.map((service) => (
-              <div onClick={handelClick}
+              <div key={service.id} onClick={()=>handelfoodtype(service.value)}
                 data-aos="fade-up"
                 data-aos-delay={service.aosDelay}
                 className="rounded-2xl bg-white hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"

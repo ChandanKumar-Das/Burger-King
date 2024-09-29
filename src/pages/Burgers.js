@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import BurgerCards from '../components/BurgerCards';
 import Navbar from "../components/Navbar";
+import { useContext } from 'react';
+import { AppContext } from '../context/Appcontext';
 
 const Burger = () => {
-  const [allData, setAllData] = useState([]); // Initialize state as an array
-    
+  const {Data} = useContext(AppContext) // Initialize state as an array
+  
+
   useEffect(() => {
-    fetch('/data/AllBurger.json')
-      .then((response) => response.json())
-      .then((data) =>  setAllData(data))
-      .catch((error) => console.log(error));
+    
   }, []);
 
   return (
@@ -17,8 +17,8 @@ const Burger = () => {
     <Navbar/>
       <div className="container mx-auto py-8">
         <div className="flex justify-center flex-wrap gap-4">
-          {allData.length > 0 ? (
-            allData.map((item, index) => (
+          {Data.length > 0 ? (
+            Data.map((item, index) => (
               <BurgerCards key={index} burgerData={item} /> 
             ))
           ) : (

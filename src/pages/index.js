@@ -3,7 +3,7 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
-import Popular from "../components/Popular";
+
 import Services from "../components/Services";
 import Testimonial from "../components/Testimonial";
 
@@ -17,8 +17,9 @@ function Index() {
     <Hero/>
     <Services/>
     <Banner/>
-    <AppStore/>
+    
     <Testimonial/>
+    <AppStore/>
     {/* <Popular/> */}
     <Footer/>
     </>

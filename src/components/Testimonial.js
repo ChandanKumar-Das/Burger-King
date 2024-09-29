@@ -48,7 +48,7 @@ const TestimonialData = [
 const Testimonial = () => {
   return (
     <>
-      <div className=" bg-gray-100">
+      <div className=" bg-gray-100 pt-6">
         <div className="container ">
           {/* Header  */}
           <HeaderTitle

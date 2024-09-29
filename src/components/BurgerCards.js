@@ -1,9 +1,9 @@
 import React from "react";
 
 const BurgerCards = ({burgerData}) => {
-  console.log('-------',burgerData)
+  //console.log('-------',burgerData)
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+    <div key={burgerData.index} className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
       <img className="w-full h-48 object-cover" src={burgerData.image} alt={burgerData.name} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{burgerData.name}</div>
