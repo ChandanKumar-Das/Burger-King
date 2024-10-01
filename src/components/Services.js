@@ -37,7 +37,7 @@ const ServicesData = [
 ];
 const Services = () => {
   
-   const {handelfoodtype} = useContext(AppContext)
+   const {handleFoodType} = useContext(AppContext)
 
   return (
     <div className="bg-gray-100">
@@ -52,10 +52,10 @@ const Services = () => {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-5 place-items-center">
             {ServicesData.map((service) => (
-              <div key={service.id} onClick={()=>handelfoodtype(service.value)}
+              <div key={service.id} onClick={()=>handleFoodType(service.value)}
                 data-aos="fade-up"
                 data-aos-delay={service.aosDelay}
-                className="rounded-2xl bg-white hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"
+                className=" cursor-pointer rounded-2xl bg-white hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"
               >
                 <div className="h-[100px]">
                   <img

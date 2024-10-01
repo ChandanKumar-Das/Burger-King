@@ -1,44 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../assets/logo.png";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
-
-const Menu = [
-  // {
-  //   id: 1,
-  //   name: "About",
-  //   link: "javascript:void(0)",
-  // },
-  {
-    id: 2,
-    name: "LogIn",
-    link: "javascript:void(0)",
-  },
-  // {
-  //   id: 3,
-  //   name: "SignUp",
-  //   link: "javascript:void(0)",
-  // },
-  // {
-  //   id: 4,
-  //   name: "Services",
-  //   link: "javascript:void(0)",
-  // },
-];
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../context/Appcontext";
+import { Serch } from "../lib/serch";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const { user, logOut } = useContext(AppContext);
+  
+  function capitalizeFirstLetter(str) {
+    if (str.length === 0) return "";
+    return str.charAt(0).toUpperCase();
+  }
+
+ 
+
+  console.log(user);
+
   return (
     <div className="shadow-xl sticky top-0 z-50 bg-white">
       <div className="container py-3 sm:py-0 sm:max-w-[80%] mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div>
-            <a href="javascript:void(0)" className="font-bold text-2xl sm:text-3xl flex gap-2">
+            <div
+             
+              className="font-bold text-2xl sm:text-3xl flex gap-2"
+            >
               <img src={Logo} alt="Logo" className="w-16" />
-            </a>
+            </div>
           </div>
 
           {/* Search Input in the Middle */}
-          <div className="flex-grow flex justify-end px-4 mx-4">
+          <div onChange={Serch} className="flex-grow flex justify-end px-4 mx-4">
             <div className="relative">
               <input
                 type="text"
@@ -65,26 +61,52 @@ const Navbar = () => {
           <div className="flex justify-between items-center gap-4">
             {/* Menu Links */}
             <ul className="hidden sm:flex items-center gap-4">
-              {Menu.map((menu) => (
-                <li key={menu.id}>
-                  <a
-                    href={menu.link}
+              {!user ? (
+                <li>
+                  <div
+                    onClick={() => navigate("/login")}
                     className="inline-block py-4 px-4 hover:text-primary duration-300"
                   >
-                    {menu.name}
-                  </a>
+                    {"Log In"}
+                  </div>
                 </li>
-              ))}
+              ) : (
+                <li>
+                  <div className="relative group">
+                    <div className="inline-block cursor-pointer bg-black rounded-full text-lg px-1 text-white duration-300">
+                      <div className="font-bold ">
+                        {capitalizeFirstLetter(user.username)}
+                      </div>
+                    </div>
+
+                    <ul className="absolute top-full left-0 mb-1 bg-white rounded-md w-24 h-16 flex flex-col justify-center items-center font-sen text-[14px] text-[#8A8E9B] font-normal leading-[12px] opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                      <li className="flex justify-center pb-4 pt-2 text-black hover:text-blue-500">
+                        My Profile
+                      </li>
+                      <li
+                        className="flex justify-center text-black hover:text-blue-500"
+                        onClick={logOut}
+                      >
+                        Logout
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              )}
             </ul>
 
             {/* Order Button */}
-            <div className="flex relative items-center gap-2 bg-blue-600 text-white py-1 px-4 rounded-full">
-              <button>
-                Cart
-              </button>
-              <LiaCartArrowDownSolid />
-              <div className="absolute text-xs right-1 top-0.5 bg-red-500 px-1 rounded-full">0</div>
-            </div>
+            {user ? (
+              <div className="flex relative items-center gap-2 bg-blue-600 text-white py-1 px-4 rounded-full">
+                <button>Cart</button>
+                <LiaCartArrowDownSolid />
+                <div className="absolute text-xs right-1 top-0.5 bg-red-500 px-1 rounded-full">
+                  0
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
