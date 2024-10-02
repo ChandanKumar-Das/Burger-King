@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 export const AppContext = createContext('');
 
 const AppContextProvider = (props) => {
+  const [allData, setallData] = useState([]);
+
   const [Data, setData] = useState(() => {
     const savedData = localStorage.getItem('burgerData');
     return savedData ? JSON.parse(savedData) : [];
@@ -33,6 +35,7 @@ const AppContextProvider = (props) => {
     const newUser = { username, password };
     existingUsers.push(newUser);
     localStorage.setItem('users', JSON.stringify(existingUsers));
+    setUser(newUser)
     navigate('/')
     return true;
 };
@@ -40,8 +43,6 @@ const AppContextProvider = (props) => {
 
 const logIn = (username, password) => {
     const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-    
-
     const user = existingUsers.find(user => user.username === username && user.password === password);
     
     if (user) {
@@ -60,29 +61,47 @@ const logOut = () => {
     setUser(null); 
 };
 
+useEffect(()=>{
+  fetch('/data/AllBurger.json')
+  .then((response) => response.json())
+  .then((data) => {
+    setallData(data)
+  })
+  .catch((error) => console.log(error));
+},[])
 
-
-  const handleFoodType = (value) => {
+  const  handleFoodType = async (value) => {
     console.log(value);
+    try{
+      let filteredData;
+      if (value === 'VEG') {
+        filteredData = allData.filter((item) => item.category === 'veg');
+      } else if (value === 'NON_VEG') {
+        filteredData = allData.filter((item) => item.category === 'non-veg');
+      } else {
+        filteredData = allData;
+      }
 
-    fetch('/data/AllBurger.json')
-      .then((response) => response.json())
-      .then((data) => {
-        let filteredData;
-        if (value === 'VEG') {
-          filteredData = data.filter((item) => item.category === 'veg');
-        } else if (value === 'NON_VEG') {
-          filteredData = data.filter((item) => item.category === 'non-veg');
-        } else {
-          filteredData = data;
-        }
-
-        setData(filteredData);
-        localStorage.setItem('burgerData', JSON.stringify(filteredData)); // Save to localStorage
-        navigate('/burger');
-      })
-      .catch((error) => console.log(error));
+      setData(filteredData);
+      localStorage.setItem('burgerData', JSON.stringify(filteredData)); // Save to localStorage
+      navigate('/burger');
+    }
+    catch(error){
+      console.log(error)
+    }
+      
   };
+
+  const handelSerch = (searchTerm) => {
+     console.log(searchTerm.toLowerCase())
+            const filtered = allData.filter(burger =>
+               burger.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+               burger.description.toLowerCase().includes(searchTerm.toLowerCase())
+             );
+             setData(filtered);
+             localStorage.setItem('burgerData', JSON.stringify(filtered));
+             console.log(Data)
+        };
 
 
 
@@ -93,7 +112,9 @@ const logOut = () => {
     signUp, 
     logIn, 
     logOut,
-    errorMessage
+    errorMessage,
+    handelSerch,
+    
   };
 
   return (

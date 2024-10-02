@@ -1,7 +1,7 @@
   [
     {
       "id": 1,
-      "name": "Classic Cheeseburger",
+      "name": "Chicken Cheeseburger",
       "restaurantname": "Burger Haven",
       "image": "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg",
       "category": "non-veg",
@@ -114,7 +114,7 @@
       "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
       "category": "veg",
       "available": true,
-      "description": "A black bean patty with avocado, salsa, and lettuce in a whole wheat bun."
+      "description": "A black chicken bean patty with avocado, salsa, and lettuce in a whole wheat bun."
     },
     {
       "id": 14,
