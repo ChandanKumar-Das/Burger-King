@@ -49,9 +49,10 @@ const Navbar = () => {
           </div>
 
          
-          <div onChange={handelSerchText} className="flex-grow flex justify-end px-4 mx-4">
+          <div  className="flex-grow flex justify-end px-4 mx-4">
             <div className="relative">
               <input
+                onChange={handelSerchText}
                 type="text"
                 placeholder="Search..."
                 className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -95,7 +96,7 @@ const Navbar = () => {
                     </div>
 
                     <ul className="absolute top-full left-0 mb-1 bg-white rounded-md w-24 h-16 flex flex-col justify-center items-center font-sen text-[14px] text-[#8A8E9B] font-normal leading-[12px] opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-                      <li className="flex justify-center pb-4 pt-2 text-black hover:text-blue-500">
+                      <li onClick={() => navigate("/Myprofile")} className="flex justify-center pb-4 pt-2 text-black hover:text-blue-500">
                         My Profile
                       </li>
                       <li

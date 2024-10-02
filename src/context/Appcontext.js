@@ -1,15 +1,17 @@
 import { createContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation } from 'react-router-dom';
 
 export const AppContext = createContext('');
 
 const AppContextProvider = (props) => {
   const [allData, setallData] = useState([]);
 
-  const [Data, setData] = useState(() => {
-    const savedData = localStorage.getItem('burgerData');
-    return savedData ? JSON.parse(savedData) : [];
-  });
+  // const [Data, setData] = useState(() => {
+  //   const savedData = localStorage.getItem('burgerData');
+  //   return savedData ? JSON.parse(savedData) : [];
+  // });
+
+  const [filterData, setFilterData] = useState([])
 
   const [user, setUser] = useState(() => {
     const savedData = localStorage.getItem('currentUser');
@@ -18,6 +20,7 @@ const AppContextProvider = (props) => {
   const [errorMessage, setErrorMessage] = useState('');
   
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Sign up function
   const signUp = (username, password) => {
@@ -58,7 +61,9 @@ const logIn = (username, password) => {
 };
 
 const logOut = () => {
-    setUser(null); 
+    setUser(null)
+    localStorage.removeItem('currentUser')
+    navigate('/')
 };
 
 useEffect(()=>{
@@ -70,27 +75,6 @@ useEffect(()=>{
   .catch((error) => console.log(error));
 },[])
 
-  const  handleFoodType = async (value) => {
-    console.log(value);
-    try{
-      let filteredData;
-      if (value === 'VEG') {
-        filteredData = allData.filter((item) => item.category === 'veg');
-      } else if (value === 'NON_VEG') {
-        filteredData = allData.filter((item) => item.category === 'non-veg');
-      } else {
-        filteredData = allData;
-      }
-
-      setData(filteredData);
-      localStorage.setItem('burgerData', JSON.stringify(filteredData)); // Save to localStorage
-      navigate('/burger');
-    }
-    catch(error){
-      console.log(error)
-    }
-      
-  };
 
   const handelSerch = (searchTerm) => {
      console.log(searchTerm.toLowerCase())
@@ -98,22 +82,32 @@ useEffect(()=>{
                burger.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                burger.description.toLowerCase().includes(searchTerm.toLowerCase())
              );
-             setData(filtered);
+             setFilterData(filtered);
              localStorage.setItem('burgerData', JSON.stringify(filtered));
-             console.log(Data)
+
+             if(location.pathname === '/burger'){
+              return 
+             }else{
+              navigate('/burger')
+             }
+            
+             //console.log(Data)
         };
 
 
 
   const value = {
-    handleFoodType,
-    Data,
+    allData,
+    //handleFoodType,
+    //Data,
+    filterData,
     user, 
     signUp, 
     logIn, 
     logOut,
     errorMessage,
     handelSerch,
+    setFilterData,
     
   };
 

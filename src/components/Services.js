@@ -5,6 +5,7 @@ import HeaderTitle from "./HeaderTitle/HeaderTitle.js";
 import { useContext } from "react"
 
 import {AppContext} from '../context/Appcontext.js'
+import { useNavigate } from "react-router-dom";
 
 const ServicesData = [
   {
@@ -37,7 +38,31 @@ const ServicesData = [
 ];
 const Services = () => {
   
-   const {handleFoodType} = useContext(AppContext)
+   const {allData ,setFilterData} = useContext(AppContext)
+
+   const navigate = useNavigate()
+
+   const  handleFoodType = (value) => {
+    console.log(value);
+    try{
+      let filteredData;
+      if (value === 'VEG') {
+        filteredData = allData.filter((item) => item.category === 'veg');
+      } else if (value === 'NON_VEG') {
+        filteredData = allData.filter((item) => item.category === 'non-veg');
+      } else {
+        filteredData = allData;
+      }
+
+      setFilterData(filteredData);
+      localStorage.setItem('burgerData',JSON.stringify(filteredData))
+      navigate('/burger');
+    }
+    catch(error){
+      console.log(error)
+    }
+      
+  };
 
   return (
     <div className="bg-gray-100">
