@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Logo from "../assets/logo.png";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation  } from "react-router-dom";
 import { AppContext } from "../context/Appcontext";
 
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [handelInput,setHandalInput]=useState('')
   const { user, logOut , handelSerch } = useContext(AppContext);
-
+  const location = useLocation();
 
   function capitalizeFirstLetter(str) {
     if (str.length === 0) return "";
@@ -31,6 +31,14 @@ const Navbar = () => {
   function handelSerchText(e){
     setHandalInput(e.target.value)
   }
+
+  const handleNavigation = () => {
+
+    if (location.pathname !== "/Myprofile") {
+      navigate("/Myprofile");
+    }
+  
+  };
 
   //console.log(user);
 
@@ -96,7 +104,7 @@ const Navbar = () => {
                     </div>
 
                     <ul className="absolute top-full left-0 mb-1 bg-white rounded-md w-24 h-16 flex flex-col justify-center items-center font-sen text-[14px] text-[#8A8E9B] font-normal leading-[12px] opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-                      <li onClick={() => navigate("/Myprofile")} className="flex justify-center pb-4 pt-2 text-black hover:text-blue-500">
+                      <li onClick={handleNavigation} className="flex justify-center pb-4 pt-2 text-black hover:text-blue-500">
                         My Profile
                       </li>
                       <li

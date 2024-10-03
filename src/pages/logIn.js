@@ -8,12 +8,13 @@ const Auth = () => {
     const { user, signUp, logIn, logOut, errorMessage } = useContext(AppContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email,setEmail] = useState('')
     const [formType, setFormType] = useState('login'); // 'login' or 'signup'
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (formType === 'signup') {
-            if (signUp(username, password)) {
+            if (signUp(email, username, password )) {
                 setFormType('login'); // Switch to login form on successful signup
             }
         } else {
@@ -28,6 +29,7 @@ const Auth = () => {
         setFormType((prev) => (prev === 'login' ? 'signup' : 'login'));
         setUsername('');
         setPassword('');
+        setEmail('');
     };
 
     return (
@@ -48,6 +50,18 @@ const Auth = () => {
                     {formType === 'login' ? 'Log In' : 'Sign Up'}
                 </h2>
                 <form onSubmit={handleSubmit} className="flex flex-col">
+
+                {formType === 'signup' &&
+               <input
+                        type="text"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="mb-4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    /> 
+                    }
+                    
                     <input
                         type="text"
                         placeholder="Username"

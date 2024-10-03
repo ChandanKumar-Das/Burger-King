@@ -23,7 +23,7 @@ const AppContextProvider = (props) => {
   const location = useLocation();
 
   // Sign up function
-  const signUp = (username, password) => {
+  const signUp = (email,username, password) => {
     const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
     
     // Check if user already exists
@@ -35,9 +35,11 @@ const AppContextProvider = (props) => {
     }
     
     // Add new user
-    const newUser = { username, password };
+    const newUser = { email,username, password };
+    const currenUser = {email,username}
     existingUsers.push(newUser);
     localStorage.setItem('users', JSON.stringify(existingUsers));
+    localStorage.setItem('currentUser', JSON.stringify(currenUser));
     setUser(newUser)
     navigate('/')
     return true;
