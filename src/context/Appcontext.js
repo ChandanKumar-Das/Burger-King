@@ -18,6 +18,7 @@ const AppContextProvider = (props) => {
     return savedData ? JSON.parse(savedData) : null});
 
   const [errorMessage, setErrorMessage] = useState('');
+  const [cartIsOpen, setCartIsOpen] = useState(false);
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -110,7 +111,8 @@ useEffect(()=>{
     errorMessage,
     handelSerch,
     setFilterData,
-    
+    cartIsOpen,
+    setCartIsOpen,
   };
 
   return (

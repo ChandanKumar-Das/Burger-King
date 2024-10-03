@@ -18,13 +18,14 @@ const BurgerCards = ({burgerData}) => {
             {burgerData.category}
           </span> */}
           <Logo type={burgerData.category}/>
-          <span
+          {/* <span
             className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${
               burgerData.available ? "bg-blue-200 text-blue-800" : "bg-gray-200 text-gray-800"
             }`}
           >
             {burgerData.available ? "Available" : "Unavailable"}
-          </span>
+          </span> */}
+          <button className="px-4 bg-white shadow-lg hover:bg-gray-200 text-green-600 font-bold text-xl">ADD</button>
         </div>
       </div>
     </div>

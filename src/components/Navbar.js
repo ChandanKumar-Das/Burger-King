@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../assets/logo.png";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { useNavigate, useLocation  } from "react-router-dom";
 import { AppContext } from "../context/Appcontext";
-
+import CartPopup from "./popUp/CartPopup";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [handelInput,setHandalInput]=useState('')
-  const { user, logOut , handelSerch } = useContext(AppContext);
+  const { user, logOut , handelSerch, cartIsOpen, setCartIsOpen } = useContext(AppContext);
   const location = useLocation();
 
+   console.log(cartIsOpen)
   function capitalizeFirstLetter(str) {
     if (str.length === 0) return "";
     return str.charAt(0).toUpperCase();
@@ -33,7 +34,6 @@ const Navbar = () => {
   }
 
   const handleNavigation = () => {
-
     if (location.pathname !== "/Myprofile") {
       navigate("/Myprofile");
     }
@@ -118,10 +118,10 @@ const Navbar = () => {
                 </li>
               )}
             </ul>
-
-            
+             
+           {cartIsOpen && <CartPopup/>} 
             {user ? (
-              <div className="flex relative items-center gap-2 bg-blue-600 text-white py-1 px-4 rounded-full">
+              <div onClick={()=>setCartIsOpen(true)} className="flex relative items-center gap-2 bg-blue-600 text-white py-1 px-4 rounded-full">
                 <button>Cart</button>
                 <LiaCartArrowDownSolid />
                 <div className="absolute text-xs right-1 top-0.5 bg-red-500 px-1 rounded-full">
