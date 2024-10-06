@@ -43,7 +43,7 @@ const Services = () => {
    const navigate = useNavigate()
 
    const  handleFoodType = (value) => {
-    console.log(value);
+    //console.log(value);
     try{
       let filteredData;
       if (value === 'VEG') {

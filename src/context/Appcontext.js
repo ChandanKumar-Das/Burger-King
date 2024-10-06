@@ -5,20 +5,21 @@ export const AppContext = createContext('');
 
 const AppContextProvider = (props) => {
   const [allData, setallData] = useState([]);
-
+console.log(allData)
   // const [Data, setData] = useState(() => {
   //   const savedData = localStorage.getItem('burgerData');
   //   return savedData ? JSON.parse(savedData) : [];
   // });
 
   const [filterData, setFilterData] = useState([])
-
+console.log(filterData)
   const [user, setUser] = useState(() => {
     const savedData = localStorage.getItem('currentUser');
     return savedData ? JSON.parse(savedData) : null});
 
   const [errorMessage, setErrorMessage] = useState('');
   const [cartIsOpen, setCartIsOpen] = useState(false);
+  
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -79,8 +80,9 @@ useEffect(()=>{
 },[])
 
 
+
   const handelSerch = (searchTerm) => {
-     console.log(searchTerm.toLowerCase())
+    // console.log(searchTerm.toLowerCase())
             const filtered = allData.filter(burger =>
                burger.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                burger.description.toLowerCase().includes(searchTerm.toLowerCase())

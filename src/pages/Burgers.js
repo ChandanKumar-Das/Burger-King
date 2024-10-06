@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import BurgerCards from "../components/BurgerCards";
 import Navbar from "../components/Navbar";
 import { AppContext } from "../context/Appcontext";
-import { div } from "framer-motion/client";
+
 
 const Burger = () => {
   const { filterData } = useContext(AppContext);
@@ -27,7 +27,7 @@ const Burger = () => {
       const bottom =
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight;
-      console.log(bottom);
+      //console.log(bottom);
       if (bottom) {
         setShowLoader(true)
         loadMoreItems();

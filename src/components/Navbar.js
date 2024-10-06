@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,  useState } from "react";
 import Logo from "../assets/logo.png";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { useNavigate, useLocation  } from "react-router-dom";
 import { AppContext } from "../context/Appcontext";
 import CartPopup from "./popUp/CartPopup";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -11,7 +12,19 @@ const Navbar = () => {
   const { user, logOut , handelSerch, cartIsOpen, setCartIsOpen } = useContext(AppContext);
   const location = useLocation();
 
-   console.log(cartIsOpen)
+  const cartCount = useSelector(state => state.cart)
+
+  const manageCartValue = manageCartCount(cartCount)
+  
+  function manageCartCount(cartCount){
+    if(cartCount.length > 0){
+      return cartCount
+    }else{
+      const savedData = localStorage.getItem('cartData');
+      return savedData ? JSON.parse(savedData) : [];
+    }
+  }
+
   function capitalizeFirstLetter(str) {
     if (str.length === 0) return "";
     return str.charAt(0).toUpperCase();
@@ -39,6 +52,11 @@ const Navbar = () => {
     }
   
   };
+
+ 
+
+
+
 
   //console.log(user);
 
@@ -96,14 +114,14 @@ const Navbar = () => {
                 </li>
               ) : (
                 <li>
-                  <div className="relative group">
-                    <div className="inline-block cursor-pointer bg-black rounded-full text-lg px-1 text-white duration-300">
+                  <div className="relative group cursor-pointer">
+                    <div className="inline-block  bg-black rounded-full text-lg px-1 text-white duration-300">
                       <div className="font-bold ">
                         {capitalizeFirstLetter(user.username)}
                       </div>
                     </div>
 
-                    <ul className="absolute top-full left-0 mb-1 bg-white rounded-md w-24 h-16 flex flex-col justify-center items-center font-sen text-[14px] text-[#8A8E9B] font-normal leading-[12px] opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                    <ul className="absolute hidden group-hover:block top-full left-0 mb-1 bg-white rounded-md w-24 h-16 flex flex-col justify-center items-center font-sen text-[14px] text-[#8A8E9B] font-normal leading-[12px] opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                       <li onClick={handleNavigation} className="flex justify-center pb-4 pt-2 text-black hover:text-blue-500">
                         My Profile
                       </li>
@@ -119,13 +137,13 @@ const Navbar = () => {
               )}
             </ul>
              
-           {cartIsOpen && <CartPopup/>} 
+           {cartIsOpen && <CartPopup foodItem={manageCartValue}/>} 
             {user ? (
               <div onClick={()=>setCartIsOpen(true)} className="flex relative items-center gap-2 bg-blue-600 text-white py-1 px-4 rounded-full">
                 <button>Cart</button>
                 <LiaCartArrowDownSolid />
                 <div className="absolute text-xs right-1 top-0.5 bg-red-500 px-1 rounded-full">
-                  0
+                  {manageCartValue.length}
                 </div>
               </div>
             ) : (
