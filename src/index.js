@@ -8,14 +8,19 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { BrowserRouter } from 'react-router-dom';
 import  AppContextProvider from './context/Appcontext'
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter> 
+  <Provider store={store}>
     <AppContextProvider>  
       <App />
       </AppContextProvider>
+      </Provider>
     </BrowserRouter>
+
   
   
 );

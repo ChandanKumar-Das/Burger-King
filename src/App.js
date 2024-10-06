@@ -4,17 +4,17 @@ import {  Routes, Route } from "react-router-dom";
 import Burger from "./pages/Burgers";
 import LogIn from './pages/logIn'
 import Myprofile from "./pages/MyProfile";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import { Provider } from "react-redux";
-import store from "./store/store";
 
 function App() {
 
   
   return (
     <>
+    <ToastContainer/>
     
-    <Provider store={store}>
     <Routes>
       <Route index element={<Index/>}/>
       <Route path="/" element={<Index/>}/>
@@ -23,7 +23,7 @@ function App() {
       <Route path= "/myprofile" element={<Myprofile/>}/>
       
     </Routes>
-    </Provider>
+    
    
 
     {/* <ContextApiDemo/> */}

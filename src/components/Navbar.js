@@ -5,6 +5,7 @@ import { useNavigate, useLocation  } from "react-router-dom";
 import { AppContext } from "../context/Appcontext";
 import CartPopup from "./popUp/CartPopup";
 import { useSelector } from "react-redux";
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,12 +17,24 @@ const Navbar = () => {
 
   const manageCartValue = manageCartCount(cartCount)
   
+
   function manageCartCount(cartCount){
-    if(cartCount.length > 0){
-      return cartCount
+    if(cartCount.length > 0 ){
+     
+      let totalQuantity = 0;
+      cartCount.forEach((item) => {
+       totalQuantity += item.quantity;
+      });
+      return totalQuantity
     }else{
-      const savedData = localStorage.getItem('cartData');
-      return savedData ? JSON.parse(savedData) : [];
+      const localvalue = localStorage.getItem('cartData')
+      const storeValue = localvalue ? JSON.parse(localvalue) : [];
+      let totalQuantity = 0;
+      storeValue.forEach((item) => {
+       totalQuantity += item.quantity;
+      });
+      return totalQuantity
+     
     }
   }
 
@@ -46,6 +59,13 @@ const Navbar = () => {
     setHandalInput(e.target.value)
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        handelSerchClick() // Prevent form submission if in a form
+    }
+};
+
   const handleNavigation = () => {
     if (location.pathname !== "/Myprofile") {
       navigate("/Myprofile");
@@ -53,8 +73,14 @@ const Navbar = () => {
   
   };
 
+ function handelCkick (){
+if(user){
+  setCartIsOpen(true)
+}else{
+  toast.info('Login please..!',{autoClose: 1000});
+}
+ }
  
-
 
 
 
@@ -75,10 +101,11 @@ const Navbar = () => {
           </div>
 
          
-          <div  className="flex-grow flex justify-end px-4 mx-4">
+          <div  className=" flex-grow flex justify-end px-4 mx-4">
             <div className="relative">
               <input
                 onChange={handelSerchText}
+                onKeyDown={handleKeyDown}
                 type="text"
                 placeholder="Search..."
                 className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -102,12 +129,12 @@ const Navbar = () => {
 
           <div className="flex justify-between items-center gap-4">
             
-            <ul className="hidden sm:flex items-center gap-4">
+            <ul className=" sm:flex items-center gap-4">
               {!user ? (
                 <li>
                   <div
                     onClick={() => navigate("/login")}
-                    className="inline-block py-4 px-4 hover:text-primary duration-300"
+                    className="inline-block cursor-pointer text-xs sm:text-lg hover:text-primary duration-300"
                   >
                     {"Log In"}
                   </div>
@@ -137,18 +164,20 @@ const Navbar = () => {
               )}
             </ul>
              
-           {cartIsOpen && <CartPopup foodItem={manageCartValue}/>} 
-            {user ? (
-              <div onClick={()=>setCartIsOpen(true)} className="flex relative items-center gap-2 bg-blue-600 text-white py-1 px-4 rounded-full">
+           {cartIsOpen && <CartPopup foodItem={cartCount}/>} 
+            {/* {user ? ( */}
+            <div className="cursor-pointer" onClick={handelCkick}>
+              <div  className="flex text-xs sm:text-lg relative items-center gap-2 bg-blue-600 text-white py-1 px-4 rounded-full">
                 <button>Cart</button>
                 <LiaCartArrowDownSolid />
                 <div className="absolute text-xs right-1 top-0.5 bg-red-500 px-1 rounded-full">
-                  {manageCartValue.length}
+                  {manageCartValue}
                 </div>
               </div>
-            ) : (
-              ""
-            )}
+              </div>
+            {/* // ) : (
+            //   ""
+            // )} */}
           </div>
         </div>
       </div>

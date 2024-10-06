@@ -1,18 +1,20 @@
 import { createContext, useState, useEffect } from 'react';
 import { useNavigate , useLocation } from 'react-router-dom';
+import { clear } from '../store/cartSclice';
+import { useDispatch } from 'react-redux';
 
 export const AppContext = createContext('');
 
 const AppContextProvider = (props) => {
   const [allData, setallData] = useState([]);
-console.log(allData)
+//console.log(allData)
   // const [Data, setData] = useState(() => {
   //   const savedData = localStorage.getItem('burgerData');
   //   return savedData ? JSON.parse(savedData) : [];
   // });
 
   const [filterData, setFilterData] = useState([])
-console.log(filterData)
+//console.log(filterData)
   const [user, setUser] = useState(() => {
     const savedData = localStorage.getItem('currentUser');
     return savedData ? JSON.parse(savedData) : null});
@@ -20,7 +22,7 @@ console.log(filterData)
   const [errorMessage, setErrorMessage] = useState('');
   const [cartIsOpen, setCartIsOpen] = useState(false);
   
-  
+  const dispatch =useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -68,6 +70,8 @@ const logOut = () => {
     setUser(null)
     localStorage.removeItem('currentUser')
     navigate('/')
+    localStorage.removeItem('cartData')
+    dispatch(clear())
 };
 
 useEffect(()=>{
