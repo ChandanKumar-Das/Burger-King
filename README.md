@@ -1,13 +1,14 @@
-An e-commerce web app for Burger Shop.
+# An e-commerce web app for Burger Shop.
 
-Checkout the Web App here - [BurgerX] ()
+# Checkout the Web App here - [BurgerX] ()
 
 ## How to install and run locally ?
+```
 $ git clone
 $ cd Burger-King
 $ npm install
 $ npm start
-
+```
 
 ## Features
 - Home Page with a list of Categories
