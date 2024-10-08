@@ -98,7 +98,7 @@ const CartPopup = ({foodItem}) =>{
                     <span onClick={() => addToCart(item)} className="text-xs border border-gray-400 px-1 rounded cursor-pointer hover:bg-gray-200">+</span>
                   </td>
                   <td className="p-2 font-bold text-red-600 cursor-pointer hover:underline">
-                    ${item.price}
+                    ${(item.price * item.quantity).toFixed(2)}
                   </td>
                 </tr>
               ))}
@@ -107,8 +107,9 @@ const CartPopup = ({foodItem}) =>{
         </div>
       )}
 
+    {foodItem.length >0 && ( <div>
       <div className="mt-4 font-bold text-lg">
-        Total: ${foodItem.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+        Total: ${foodItem.reduce((total, item) => total + item.price * item.quantity,0).toFixed(2)}
       </div>
 
       {/* Buy Button */}
@@ -120,6 +121,8 @@ const CartPopup = ({foodItem}) =>{
           Buy
         </button>
       </div>
+      </div>)} 
+   
     </div>
   </div>
 )}

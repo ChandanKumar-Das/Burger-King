@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, {  useContext, useState } from "react";
 import Logo from "./foodLogo/logo";
 
 import { useDispatch } from "react-redux";
 import { add } from "../store/cartSclice";
+import { AppContext } from "../context/Appcontext";
+import { toast } from "react-toastify";
+
 
 const BurgerCards = ({burgerData}) => {
-  //console.log('-------',burgerData)
+  
   const [isAdded, setIsAdded] =useState(false)
-const dispatch =useDispatch();
+
+  const dispatch =useDispatch();
+  const {user} =useContext(AppContext)
+
   function addToCart(products) {
-    dispatch(add(products))
     setIsAdded(true)
+    if(user){
+      
+      dispatch(add(products))
+      
+    }else{
+      toast.info('Login please..!',{autoClose: 1000});
+      
+    }  
   }
   return (
     <div key={burgerData.index} className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">

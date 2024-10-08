@@ -90,7 +90,7 @@ const Footer = () => {
         </div>
         <div>
           <div className="text-center py-10 border-t-2 border-gray-300/50">
-            @copyright 2024 || The Coding Journey
+            @copyright 2024 
           </div>
         </div>
       </section>
