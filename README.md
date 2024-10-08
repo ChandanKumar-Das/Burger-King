@@ -4,7 +4,7 @@ Checkout the Web App here - [BurgerX] ()
 
 ## How to install and run locally ?
 $ git clone
-$ cd Cinemate
+$ cd Burger-King
 $ npm install
 $ npm start
 
