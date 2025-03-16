@@ -50,7 +50,7 @@ const Testimonial = () => {
     <>
       <div className=" bg-gray-100 pt-6">
         <div className="container ">
-          {/* Header  */}
+
           <HeaderTitle
             title="Testimonial"
             subtitle="What our customers say"
@@ -58,18 +58,17 @@ const Testimonial = () => {
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis delectus architecto error nesciunt,"
             }
           />
-          {/* testimonial */}
-          <div className="max-w-[800px]  mx-auto">
+     
+          <div className="max-w-[1200px]  mx-auto">
            
             <Slider {...settings}>
-
               {TestimonialData.map((data) => (
                 <div data-aos="fade-up" className="" key={data.id}>
                   <div className="text-center bg-[#ffffff] shadow-lg p-4 rounded-xl space-y-3 my-8 mx-5">
                     <img
                       className="rounded-full block mx-auto"
                       src={data.img}
-                      alt=""
+                      alt='alt'
                     />
                     <p className="text-gray-500 text-sm">{data.testimonial}</p>
                     <h1 className="text-xl font-bold">{data.name}</h1>

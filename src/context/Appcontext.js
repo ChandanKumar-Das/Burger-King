@@ -14,7 +14,7 @@ const AppContextProvider = (props) => {
   // });
 
   const [filterData, setFilterData] = useState([])
-//console.log(filterData)
+  //console.log(filterData)
   const [user, setUser] = useState(() => {
     const savedData = localStorage.getItem('currentUser');
     return savedData ? JSON.parse(savedData) : null});

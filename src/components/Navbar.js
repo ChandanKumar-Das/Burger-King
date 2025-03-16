@@ -78,6 +78,9 @@ if(user){
   setCartIsOpen(true)
 }else{
   toast.info('Login please..!',{autoClose: 1000});
+  setTimeout(() => {
+    navigate('/login');
+  }, 2000);
 }
  }
  
